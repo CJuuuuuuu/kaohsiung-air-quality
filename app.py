@@ -563,7 +563,7 @@ def generate_plot(period_data, plot_type, plot_config, period_label,
     if plot_type == 'wind_field':
         contourf = ax.contourf(grid_lon_mesh, grid_lat_mesh, grid_values,
                               levels=plot_config['levels'], cmap=cmap, norm=norm, 
-                              extend='both', alpha=alpha, zorder=1)
+                              extend='both', alpha=alpha, zorder=2)  # 修正：改為 zorder=2
         
         u = site_avg['WindSpeed_Mean'] * np.sin(np.deg2rad(site_avg['WindDirection_Mean']))
         v = site_avg['WindSpeed_Mean'] * np.cos(np.deg2rad(site_avg['WindDirection_Mean']))
