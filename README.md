@@ -20,7 +20,7 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
 
 ## 系統需求
 
-- Python 3.8 或以上版本
+- Python 3.8
 - 8GB RAM（建議）
 - 網頁瀏覽器（Chrome/Firefox/Edge）
 
@@ -31,6 +31,7 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
 **[Google Drive 資料下載連結](https://drive.google.com/drive/folders/1ak6yl8A6AlYswMBxFxrKyeyh3iU-YXUA?usp=drive_link)**
 
 **下載說明：**
+
 1. 進入連結後，請下載所有 `.csv` 檔案。
 2. 在本專案目錄下建立一個名為 `data` 的資料夾。
 3. 將下載的檔案全部放入 `data` 資料夾中即可直接執行。
@@ -40,23 +41,25 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
 ### Windows 使用者
 
 1. **檢查 Python 環境**
-   開啟命令提示字元 (cmd)，輸入 `python --version` 確認已安裝 Python 3.8+。
+   開啟命令提示字元 (cmd)，輸入 `python --version` 確認已安裝 Python 3.8。
 
 2. **準備資料**
    依照上方「資料下載」說明，將 CSV 檔案放入 `data` 資料夾。
 
 3. **啟動系統**
    雙擊專案目錄下的 `run_app.bat` (若無此檔，可參考下方手動安裝指令)。
-   *首次執行會自動安裝必要套件，請耐心等待瀏覽器開啟。*
+   _首次執行會自動安裝必要套件，請耐心等待瀏覽器開啟。_
 
 ### Linux/Mac 使用者
 
 1. 開啟終端機，進入專案目錄：
+
    ```bash
    cd /path/to/kaohsiung_air_quality_system
    ```
 
 2. 建立虛擬環境 (建議)：
+
    ```bash
    python3 -m venv venv
    source venv/bin/activate
@@ -73,20 +76,24 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
 ### 1. 參數設定 (左側邊欄)
 
 #### 資料來源
+
 - **資料目錄**：預設為 `data` (若您將檔案放在其他位置，請在此修改路徑)。
 - **測站檔案**：預設為 `data/Kaohsiung_iot_station.csv`。
 
 #### 時間範圍
+
 - **篩選模式**：
-  - **依年份/月份**：適合觀察大尺度趨勢 (例如：2020年全年的月平均)。
-  - **自訂日期區間**：適合分析特定事件 (例如：某次空污事件的連續3天)。
+  - **依年份/月份**：適合觀察大尺度趨勢 (例如：2020 年全年的月平均)。
+  - **自訂日期區間**：適合分析特定事件 (例如：某次空污事件的連續 3 天)。
 - **時間聚合方式**：決定一張圖代表的時間長度 (例如選「每月」，則 2020 年會產生 12 張圖)。
 
 #### 時段分析
+
 - **啟用時段分析**：勾選後可針對特定作息時段進行分析。
-  - *範例*：想看「下班時間」的空污分布，請勾選「傍晚尖峰 (17:00-19:00)」。
+  - _範例_：想看「下班時間」的空污分布，請勾選「傍晚尖峰 (17:00-19:00)」。
 
 #### 圖表類型 & 進階設定
+
 - 建議初次使用先選擇 `PM2.5 空間分布` 即可。
 - **進階設定**中可調整 `網格解析度` (影響畫質與速度) 及 `擴散半徑` (影響平滑度)。
 
@@ -108,6 +115,7 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
 若您需要自行新增或更新資料，請確保檔案符合以下格式：
 
 ### 1. 年度資料檔案
+
 - **檔名規則**：必須以 `kaohsiung_airbox_hourly_with_wind` 開頭，副檔名為 `.csv`。
 - **範例**：`kaohsiung_airbox_hourly_with_wind_2024.csv`
 - **必要欄位**：
@@ -115,9 +123,10 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
   - `timestamp`: 時間 (YYYY-MM-DD HH:MM:SS)
   - `pm25_mean`: PM2.5 數值
   - `WindSpeed_Mean`: 風速 (m/s)
-  - `WindDirection_Mean`: 風向 (0-360度)
+  - `WindDirection_Mean`: 風向 (0-360 度)
 
 ### 2. 測站坐標檔案
+
 - **檔名建議**：`Kaohsiung_iot_station.csv`
 - **必要欄位**：
   - `deviceId`: 測站編號 (需與年度資料對應)
@@ -125,5 +134,6 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
   - `lon`: 經度
 
 ---
+
 **Urban Innofix Lab**  
-*Kaohsiung Air Quality Spatial-Temporal Analysis System v12.0*
+_Kaohsiung Air Quality Spatial-Temporal Analysis System v12.0_

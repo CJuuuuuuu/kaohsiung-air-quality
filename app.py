@@ -11,17 +11,17 @@ Kaohsiung Air Quality Spatial-Temporal Analysis System
 """
 
 import os
-import warnings
 import tempfile
+import warnings
 import zipfile
-from datetime import datetime, date
-from pathlib import Path
+from datetime import date, datetime
 from io import BytesIO
+from pathlib import Path
 
-import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import streamlit as st
 from matplotlib.colors import BoundaryNorm, LinearSegmentedColormap
 from scipy.ndimage import gaussian_filter
 
@@ -930,7 +930,7 @@ if 'generated_images' in st.session_state:
     if selected_image:
         # 顯示圖片
         try:
-            st.image(generated_images[selected_image], use_column_width=True)
+            st.image(generated_images[selected_image], use_container_width=True)
         except:
             st.image(generated_images[selected_image], width=800)
         
